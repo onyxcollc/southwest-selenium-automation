@@ -86,4 +86,10 @@ wait.until(EC.element_to_be_clickable(
 ♿️ Accessibility-first attributes → Made locators stable and semantic
 
 
+👨‍💻 Author
+Nicholas Olumese
+Built with 💻 & ✈️ using Python + Selenium
+GitHub | LinkedIn
+
+
 
