@@ -17,12 +17,13 @@ driver.maximize_window()
 
 #Open Southwest url
 driver.get("https://www.southwest.com/")
+driver.save_screenshot("screenshots/01_homepage.png")
 
 
 #Click third party cookies Dismiss button
 dismiss_btn = wait.until(EC.visibility_of_element_located((By.ID, "onetrust-accept-btn-handler")))
 dismiss_btn.click()
-
+driver.save_screenshot("screenshots/02_dismiss.png")
 
 #Click trip type dropdown
 # round_trip_dd = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"[aria-label*='Trip type']")))
@@ -33,13 +34,17 @@ depart_field = wait.until(EC.element_to_be_clickable((By.ID,"originationAirportC
 depart_field.send_keys(Keys.CONTROL + "a")
 depart_field.send_keys(Keys.BACKSPACE)
 depart_field.send_keys("LAX")
+assert "LAX" in depart_field.get_attribute("value"), "Depart field did not populate with LAX."
+driver.save_screenshot("screenshots/03_losangeles_selected.png")
 
 #Type BWI in Arrive field
 arrive_field = wait.until(EC.element_to_be_clickable((By.ID,"destinationAirportCode")))
 arrive_field.send_keys("BWI")
 bwi = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"[aria-labelledby*='Baltimore']")))
+assert bwi.is_displayed(), "Baltimore suggestions not visible"
 bwi.click()
 arrive_field.send_keys(Keys.TAB)
+driver.save_screenshot("screenshots/04_baltimore_selected.png")
 
 #Type depart date
 dep_date_input = wait.until(EC.element_to_be_clickable((By.ID,"departureDate")))
@@ -49,7 +54,7 @@ wait.until(EC.visibility_of_element_located((By.XPATH,"//*[text()='Select your t
 
 aug_15 = wait.until(EC.visibility_of_element_located((By.XPATH,"//*[text()='August']/following::div[text()='15'][1]")))
 aug_15.click()
-
+driver.save_screenshot("screenshots/05_depart_date.png")
 
 #Type return date
 dep_date_input = wait.until(EC.element_to_be_clickable((By.ID,"returnDate")))
@@ -59,7 +64,7 @@ wait.until(EC.visibility_of_element_located((By.XPATH,"//*[text()='Select your t
 
 aug_22 = wait.until(EC.visibility_of_element_located((By.XPATH,"//*[text()='August']/following::div[text()='22'][1]")))
 aug_22.click()
-
+driver.save_screenshot("screenshots/06_return_date.png")
 
 #Pick 4 Passengers
 passenger_field = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"[aria-label='Passenger Selector']")))
@@ -73,14 +78,18 @@ for _ in range(3):
     increased_button = driver.find_element(By.XPATH, f"{spinner_xpath}//button[@aria-label='inc']")
     increased_button.click()
 
+spinner = driver.find_element(By.ID, spinner_id)
+assert spinner.get_attribute("aria-valuenow") == "4", "Passenger count is not 4"
 
 #Click Apply Button
 apply_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[text()='Apply']")))
 apply_btn.click()
+driver.save_screenshot("screenshots/07_passenger_popup.png")
 
 #Click search for flights
 search_flight = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@class='container__F2xqj']")))
 search_flight.click()
+driver.save_screenshot("screenshots/08_search_button.png")
 sleep(10)
 
 
