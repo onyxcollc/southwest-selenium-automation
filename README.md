@@ -1,4 +1,5 @@
 # ✈️ Southwest Airlines Selenium Automation Project
+![image alt]()
 
 ## 📌 Project Overview
 
