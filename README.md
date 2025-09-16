@@ -1,5 +1,5 @@
 # ✈️ Southwest Airlines Selenium Automation Project
-![image alt]()
+![image alt](https://github.com/onyxcollc/southwest-selenium-automation/blob/4351de086e60ac3788e680fcbb2598f8ffe44b4c/southwest.jpg)
 
 ## 📌 Project Overview
 
