@@ -1,6 +1,8 @@
 # ✈️ Southwest Airlines Selenium Automation Project
 ![image alt](https://github.com/onyxcollc/southwest-selenium-automation/blob/4351de086e60ac3788e680fcbb2598f8ffe44b4c/southwest.jpg)
 
+
+
 ## 📌 Project Overview
 
 This project automates the flight booking flow on [Southwest.com](https://www.southwest.com) using **Selenium WebDriver with Python**.
@@ -11,6 +13,8 @@ It covers real-world challenges including:
 - Passenger quantity spinners
 - A complex calendar widget
 - Accessibility-driven selectors (e.g. `aria-label`)
+
+https://github.com/user-attachments/assets/f979979e-cfee-4415-9cff-a6d51d33921e
 
 ---
 
